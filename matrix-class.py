@@ -1,4 +1,19 @@
 import numpy as np
+
+matrix1,matrix2 = input().split()
+def mat_not(mat):
+    inp_list = mat.split('],[')
+    print(inp_list)
+    for i in range(len(inp_list)):
+        inp_list[i]=inp_list[i].split(",")
+    inp_list[0][0]=inp_list[0][0].replace('[[','')
+    inp_list[-1][-1] = inp_list[-1][-1].replace(']]','')
+    return inp_list
+    for i in range(len(inp_list)):
+        for j in range(len(inp_list[i])):
+            inp_list[i][j] = int(inp_list[i][j])
+    
+print(mat_not(matrix1))
 class matrix:
     def __init__(self,matrix) -> None:
         
@@ -45,8 +60,8 @@ class matrix:
                 for k in range(other.shape[0]):
                     solmat.matrix[i][j]+=self.matrix[i][k]*other.matrix[k][j]
         return solmat
-y= np.array([[1,9,8],[2,9,8],[3,9,8]])
+y= np.array(matrix1)
 A = matrix(y)
-x = np.array([[4,5,6],[7,8,9],[1,2,3]])
+x = np.array(matrix2)
 B = matrix(x)
-print(A*B)
+print()
