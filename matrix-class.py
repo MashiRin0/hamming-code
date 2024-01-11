@@ -1,18 +1,4 @@
 import numpy as np
-matrix1,matrix2 = input().split()
-def mat_not(mat):
-    inp_list = mat.split('],[')
-    print(inp_list)
-    for i in range(len(inp_list)):
-        inp_list[i]=inp_list[i].split(",")
-    inp_list[0][0]=inp_list[0][0].replace('[[','')
-    inp_list[-1][-1] = inp_list[-1][-1].replace(']]','')
-    return inp_list
-    for i in range(len(inp_list)):
-        for j in range(len(inp_list[i])):
-            inp_list[i][j] = int(inp_list[i][j])
-    
-print(mat_not(matrix1))
 
 class matrix:
     def __init__(self,matrix) -> None:
