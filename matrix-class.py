@@ -1,5 +1,5 @@
 import numpy as np
-matrix1,matrix2 = input().split()
+
 def mat_not(mat):
     inp_list = mat.split('],[')
     print(inp_list)
@@ -11,8 +11,6 @@ def mat_not(mat):
     for i in range(len(inp_list)):
         for j in range(len(inp_list[i])):
             inp_list[i][j] = int(inp_list[i][j])
-    
-print(mat_not(matrix1))
 
 class matrix:
     def __init__(self,matrix) -> None:
@@ -40,6 +38,9 @@ class matrix:
         for i in range(self.shape[0]):
             for j in range(self.shape[1]):
                 solmat.matrix[i][j]= self.matrix[i][j]+other.matrix[i][j]
+        for i in range(solmat.shape[0]):
+            for j in range(solmat.shape[1]):
+                solmat.matrix[i][j] = solmat.matrix[i][j]%2
         return solmat
     def __radd__(self,other):
         if self.shape!=other.shape:
@@ -49,6 +50,9 @@ class matrix:
         for i in range(self.shape[0]):
             for j in range(self.shape[1]):
                 solmat.matrix[i][j]= self.matrix[i][j]+other.matrix[i][j]
+        for i in range(solmat.shape[0]):
+            for j in range(solmat.shape[1]):
+                solmat.matrix[i][j] = solmat.matrix[i][j]%2
         return solmat
     def __mul__(self,other):
         if self.shape[1]!=other.shape[0]:
@@ -58,9 +62,16 @@ class matrix:
         for i in range(self.shape[0]):
             for j in range(other.shape[1]):
                 for k in range(other.shape[0]):
-                    solmat.matrix[i][j]+=self.matrix[i][k]*other.matrix[k][j]
+                    solmat.matrix[i][j]+=self.matrix[i][k]*other.matrix[k][j]  
+        for i in range(solmat.shape[0]):
+            for j in range(solmat.shape[1]):
+                solmat.matrix[i][j] = solmat.matrix[i][j]%2
+
         return solmat
-y= np.array(matrix1)
+y = np.array([[1,2,4],[3,4,1],[5,6,2]])
 A = matrix(y)
-x = np.array(matrix2)
+x = np.array([[2,3,5],[1,3,2],[5,7,1]])
 B = matrix(x)
+
+print(A+B)
+
