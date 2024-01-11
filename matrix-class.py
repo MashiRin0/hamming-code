@@ -1,5 +1,6 @@
 import numpy as np
 
+
 matrix1,matrix2 = input().split()
 def mat_not(mat):
     inp_list = mat.split('],[')
