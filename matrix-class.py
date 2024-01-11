@@ -46,7 +46,4 @@ class matrix:
                 for k in range(other.shape[0]):
                     solmat.matrix[i][j]+=self.matrix[i][k]*other.matrix[k][j]
         return solmat
-y= np.array(matrix1)
-A = matrix(y)
-x = np.array(matrix2)
-B = matrix(x)
+
