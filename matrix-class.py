@@ -1,32 +1,4 @@
 import numpy as np
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-class matrix:
-    
-    def __init__(self, matrix) -> None:
-        
-        self.matrix = matrix
-        self.shape = matrix.shape()
-        
-
-    def RREF(self):
-
-        pass
-
-A = np.array([[3,1,2],[0,4,3],[1,7,2]])
-B = np.array([[1,2,3],[4,5,6],[7,8,9]])
-
-# A = np.zeros(shape=(3,2), dtype=int)
-
-# Poep = matrix(A)
-
-print(A)
-print(B)
-=======
-=======
-
-
 matrix1,matrix2 = input().split()
 def mat_not(mat):
     inp_list = mat.split('],[')
@@ -41,7 +13,7 @@ def mat_not(mat):
             inp_list[i][j] = int(inp_list[i][j])
     
 print(mat_not(matrix1))
->>>>>>> 685294b2029e756e8437e03bf13ad7d425c7d3ca
+
 class matrix:
     def __init__(self,matrix) -> None:
         
@@ -92,9 +64,3 @@ y= np.array(matrix1)
 A = matrix(y)
 x = np.array(matrix2)
 B = matrix(x)
-<<<<<<< HEAD
-print(A*B)
->>>>>>> b8c1fbe6851b05cbaeb4e8be63c59c0c6beb0ca8
-=======
-print()
->>>>>>> 685294b2029e756e8437e03bf13ad7d425c7d3ca
