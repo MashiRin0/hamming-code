@@ -87,10 +87,8 @@ class matrix:
                 for k in range(other.shape[0]):
                     solmat.matrix[i][j]+=self.matrix[i][k]*other.matrix[k][j]
         return solmat
-y= np.array([[1,9,8],[2,9,8],[3,9,8]])
 y= np.array(matrix1)
 A = matrix(y)
-x = np.array([[4,5,6],[7,8,9],[1,2,3]])
 x = np.array(matrix2)
 B = matrix(x)
 <<<<<<< HEAD
