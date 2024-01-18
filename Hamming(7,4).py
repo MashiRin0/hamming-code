@@ -19,7 +19,6 @@ def check_error(y):
             nul7 = matrix.nul_mat(7,1)
             nul7.matrix[i]=1
             if H*(y+nul7)==nul:
-                print("error found")
                 return data_bits.index(i)
     #we don't have to check for errors in the parity bits, since that doesn't affect the data
     
