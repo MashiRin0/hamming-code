@@ -32,7 +32,14 @@ class matrix:
             for j in range(self.shape[1]):
                 solmat.matrix[i][j] = (other.matrix[i][j] + self.matrix[i][j])%2
         return solmat
-    
+        if self.shape!=other.shape:
+            raise ValueError("matrices hebben niet dezelfde vorm")
+        solmat = self
+        for i in range(self.shape[0]):
+            for j in range(self.shape[1]):
+                solmat.matrix[i][j] = (other.matrix[i][j] - self.matrix[i][j])%2
+        return solmat
+
     def __mul__(self,other):
         if self.shape[1]!=other.shape[0]:
             raise ValueError("matrices kunnen niet vermenigvuldigd worden!")
