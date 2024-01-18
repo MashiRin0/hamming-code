@@ -1,10 +1,10 @@
 class matrix:
     def __init__(self,matrix) -> None:
-        self.matrix = matrix
+        self.matrix = matrix #this will give the matrix in list form
         self.shape = [len(self.matrix),len(self.matrix[0])] #[rows,columns]
 
     def __str__(self):
-        out = "[\n"
+        out = "[\n" #this will be the string pasted, we have chosen for a format here, but this could be anything
         for i in range(self.shape[0]):
             out+="["
             for j in range(self.shape[1]):
@@ -16,7 +16,7 @@ class matrix:
         return out
     
     def __add__(self,other):
-        if self.shape!=other.shape:
+        if self.shape!=other.shape: #addition is only possible with matrices of the same shape
             raise ValueError("matrices hebben niet dezelfde vorm")
         solmat = self
         for i in range(self.shape[0]):
@@ -73,7 +73,7 @@ class matrix:
         if self==other:
             return False
         else: return True
-    
+
     def transpose(self):
         solmat = matrix.nul_mat(self.shape[1],self.shape[0])
         for i in range(self.shape[0]):

@@ -48,5 +48,5 @@ def generate_code_gen_mat(m):
             if bits[i]=="d":
                 G[j].append(code_gen[j][i])
     return matrix(G)
-
+#G^-1=R en H*G=O
 print(generate_code_gen_mat(3))
