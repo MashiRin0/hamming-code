@@ -74,3 +74,9 @@ class matrix:
             return False
         else: return True
     
+    def transpose(self):
+        solmat = matrix.nul_mat(self.shape[1],self.shape[0])
+        for i in range(self.shape[0]):
+            for j in range(self.shape[1]):
+                solmat.matrix[j][i]=self.matrix[i][j]
+        return solmat
