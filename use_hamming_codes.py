@@ -11,7 +11,7 @@ def make_list(not_list):
         for j in range(len(not_list[i])):
             list[i].append(int(not_list[i][j]))
     return list
-m=int(input("How many parity bits will you use, this will be Hamming(2**m-1,2**m-m-1) code \n Note that this value should be greater than 1, and for the smallest complexity choose m=3:"))
+m=int(input("How many parity bits will you use, this will be Hamming(2**m-1,2**m-m-1) code where m is the number of parity bits\n Note that this value should be greater than 1, and for the smallest complexity choose m=3:"))
 func = input("Do you want to decode or encode? d for decode and e for encode:")
 if func=="e":
     message = input("input your message as groups of "+str((2**m)-m-1)+" bits seperated by spaces:").split()
