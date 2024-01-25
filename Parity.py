@@ -9,13 +9,13 @@ def encode(x):
     return y
 
 def check_error(vector):
-    if H*vector != matrix([[0]]):
-        return 1
-    else: return 0
+    if H*vector != matrix([[0]]): #you can see that we should always have an even parity
+        return 1 #this would be an error
+    else: return 0 #this is no error (or 2 errors)
 
 def decode(y):
     if check_error(y)==1:
         return "Error"
     else:
-        x = R*y
+        x = R*y 
         return x
