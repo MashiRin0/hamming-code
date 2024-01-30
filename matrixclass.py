@@ -40,11 +40,7 @@ class matrix:
         for i in range(self.shape[0]):
             for j in range(other.shape[1]):
                 for k in range(other.shape[0]):
-                    solmat.matrix[i][j]+=self.matrix[i][k]*other.matrix[k][j] #rules for matrix multiplication
-        for i in range(solmat.shape[0]):
-            for j in range(solmat.shape[1]):
-                solmat.matrix[i][j] = solmat.matrix[i][j]%2 #we have to use a seperate loop for the mod 2 since we add
-
+                    solmat.matrix[i][j]=(solmat.matrix[i][j]+self.matrix[i][k]*other.matrix[k][j])%2 #rules for matrix multiplication
         return solmat
 
     def nul_mat(row,col):

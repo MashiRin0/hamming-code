@@ -1,5 +1,7 @@
 from Hamming74 import encode as encode3
 from Hamming74 import decode as decode3
+from Hamming_m import gen_encode 
+from Hamming_m import gen_decode
 from Hamming_m import encode
 from Hamming_m import decode
 from matrixclass import matrix
@@ -17,23 +19,27 @@ if func=="e":
     message = input("input your message as groups of "+str((2**m)-m-1)+" bits seperated by spaces:").split()
     msg_lst = make_list(message)
     out = ""
+    if m != 3:
+        gen_encode(m)
     for i in range(len(msg_lst)):
         x = matrix.transpose(matrix([msg_lst[i]]))
         if m == 3: #the general function is slower, so that is why we use a seperate function for m = 3
             out += str(matrix.transpose(encode3(x)))
         else:
-            out += str(matrix.transpose(encode(m,x)))
+            out += str(matrix.transpose(encode(x)))
     out = out.replace("\n]["," ")
 elif func=="d":
     message = input("input the encoded message as groups of "+str((2**m)-1)+" bits seperated by spaces:").split()
     msg_lst = make_list(message)
     out = ""
+    if m != 3:
+        gen_decode(m)
     for i in range(len(msg_lst)):
         y = matrix.transpose(matrix([msg_lst[i]]))
         if m == 3: #the general function is slower, so that is why we use a seperate function for m = 3
             out+= str(matrix.transpose(decode3(y)))
         else:
-            out+= str(matrix.transpose(decode(m,y)))
+            out+= str(matrix.transpose(decode(y)))
     out = out.replace("\n][","")
 else: raise ValueError("input incorrect")
 print(out)
