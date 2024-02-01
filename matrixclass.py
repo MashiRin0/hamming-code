@@ -10,7 +10,7 @@ class matrix:
             for j in range(self.shape[1]): #goes through the collumns
                 self.matrix[i][j]=self.matrix[i][j]%2 #mod 2
                 out+=str(self.matrix[i][j])+"    " #adds every element to the string
-            out = out[:-4]
+            out = out[:-4] #removes last spaces
             out+="]\n"
         out+="]"
         return out
@@ -37,7 +37,7 @@ class matrix:
         if self.shape[1]!=other.shape[0]: #rules for matrix multiplication
             raise ValueError("matrices kunnen niet vermenigvuldigd worden!")
         solmat = matrix.nul_mat(self.shape[0],other.shape[1])
-        for i in range(self.shape[0]):
+        for i in range(self.shape[0]): #looping through rows of self
             for j in range(other.shape[1]):
                 for k in range(other.shape[0]):
                     solmat.matrix[i][j]=(solmat.matrix[i][j]+self.matrix[i][k]*other.matrix[k][j])%2 #rules for matrix multiplication

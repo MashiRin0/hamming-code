@@ -87,11 +87,12 @@ def error_correct(y): #will return nothing for no error, and for an error the in
     if H*y == nul:
         pass
     else:
+        nulvec = matrix.nul_mat(2**m-1,1)
         for i in dat:
-            nulvec = matrix.nul_mat(2**m-1,1)
             nulvec.matrix[i]=[1] #we change one of the data bits with this vecor
             if H*(nulvec+y)== nul:#check if changing this data bit solves our error
                 return dat.index(i)#if it does, return the place of the error
+            nulvec.matrix[i]=[0] #we save complexity by not looping the nulvec creation
 
 def gen_encode(n):
     global C #this will generate all we need for encode
