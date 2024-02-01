@@ -15,36 +15,35 @@ def gen_bits():
 
 def code_gen():#this list will tell us which bits the parity bits encompass
     code_gen = [] #we will append the rows to this list
-    while len(code_gen)<len(bits): 
-        counter_d = 0
-        for i in range(len(bits)):
-            if bits[i]=="d": #all data bits will point only to itself
-                row = []
-                for j in range(len(bits)):
-                    if j == i:
+    counter_d = 0
+    for i in range(len(bits)):
+        if bits[i]=="d": #all data bits will point only to itself
+            row = []
+            for j in range(len(bits)):
+                if j == i:
+                    row.append(1)
+                else: row.append(0)
+            code_gen.append(row)
+            counter_d += 1
+        else: #the parity bits will point to the bits according to this algorithm
+            row = []
+            for j in range(i):
+                row.append(0)
+            counter = 0
+            while len(bits)>len(row):
+                if counter == 0:
+                    for j in range(i+1):
                         row.append(1)
-                    else: row.append(0)
-                code_gen.append(row)
-                counter_d += 1
-            else: #the parity bits will point to the bits according to this algorithm
-                row = []
-                for j in range(i):
-                    row.append(0)
-                counter = 0
-                while len(bits)>len(row):
-                    if counter == 0:
-                        for j in range(i+1):
-                            row.append(1)
-                            if len(bits)<len(row): #fixes a problem with adding too many bits to this row
-                                row.pop(-1)
-                        counter += 1
-                    else:
-                        for j in range(i+1):
-                            row.append(0)
-                            if len(bits)<len(row): #fixes the same problem as before
-                                row.pop(-1)
-                        counter -= 1
-                code_gen.append(row)
+                        if len(bits)<len(row): #fixes a problem with adding too many bits to this row
+                            row.pop(-1)
+                    counter += 1
+                else:
+                    for j in range(i+1):
+                        row.append(0)
+                        if len(bits)<len(row): #fixes the same problem as before
+                            row.pop(-1)
+                    counter -= 1
+            code_gen.append(row)
     return code_gen
 
 def encode_mat(): 
